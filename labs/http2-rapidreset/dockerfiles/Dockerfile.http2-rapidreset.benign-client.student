@@ -56,6 +56,9 @@ RUN adduser $user_name sudo
 #  **** Perform all root operations, e.g.,           ****
 #  **** "apt-get install" prior to the USER command. ****
 #
+RUN apt-get update && apt-get install -y python3-pip curl && rm -rf /var/lib/apt/lists/*
+# Because the containers run python 3.8, so we can use httpx 0.28+
+RUN pip3 install --no-cache-dir "httpx[http2]==0.27.2"
 USER $user_name
 ENV HOME /home/$user_name
 #
