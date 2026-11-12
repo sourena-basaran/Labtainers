@@ -16,3 +16,5 @@
 #   PERMLOCKDIR=/var/labtainer/did_param
 #   echo $1 | sudo -S mkdir -p "$PERMLOCKDIR"
 
+chmod +x /home/ubuntu/backend_server.py
+nohup python3 /home/ubuntu/backend_server.py > /home/ubuntu/backend.log 2>&1 &
